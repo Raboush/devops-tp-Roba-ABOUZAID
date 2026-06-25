@@ -1,8 +1,11 @@
 const {
   getAllStudents,
   getStudentById,
-  addStudent
+  addStudent,
+  updateStudent,
+  deleteStudent
 } = require("../models/student.model");
+
 const getStudents = (req, res) => {
   const students = getAllStudents();
 
@@ -45,8 +48,42 @@ const createStudent = (req, res) => {
   });
 };
 
+const editStudent = (req, res) => {
+  const updatedStudent = updateStudent(req.params.id, req.body);
+
+  if (!updatedStudent) {
+    return res.status(404).json({
+      status: "ERROR",
+      message: "Student not found"
+    });
+  }
+
+  res.json({
+    status: "OK",
+    data: updatedStudent
+  });
+};
+
+const removeStudent = (req, res) => {
+  const deletedStudent = deleteStudent(req.params.id);
+
+  if (!deletedStudent) {
+    return res.status(404).json({
+      status: "ERROR",
+      message: "Student not found"
+    });
+  }
+
+  res.json({
+    status: "OK",
+    data: deletedStudent
+  });
+};
+
 module.exports = {
   getStudents,
   getStudent,
-  createStudent
+  createStudent,
+  editStudent,
+  removeStudent
 };

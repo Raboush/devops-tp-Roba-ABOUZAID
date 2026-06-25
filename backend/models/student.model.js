@@ -24,8 +24,33 @@ const addStudent = (student) => {
     return student;
 };
 
+const updateStudent = (id, updatedData) => {
+  const student = students.find(student => student.id === Number(id));
+
+  if (!student) {
+    return null;
+  }
+
+  student.nom = updatedData.nom;
+  student.age = updatedData.age;
+
+  return student;
+};
+
+const deleteStudent = (id) => {
+  const index = students.findIndex(student => student.id === Number(id));
+
+  if (index === -1) {
+    return null;
+  }
+
+  return students.splice(index, 1)[0];
+};
+
 module.exports = {
-    getAllStudents,
-    getStudentById,
-    addStudent
+  getAllStudents,
+  getStudentById,
+  addStudent,
+  updateStudent,
+  deleteStudent
 };
