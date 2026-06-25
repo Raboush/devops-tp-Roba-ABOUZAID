@@ -1,8 +1,8 @@
 const {
   getAllStudents,
-  getStudentById
+  getStudentById,
+  addStudent
 } = require("../models/student.model");
-
 const getStudents = (req, res) => {
   const students = getAllStudents();
 
@@ -28,7 +28,25 @@ const getStudent = (req, res) => {
   });
 };
 
+const createStudent = (req, res) => {
+  const { nom, age } = req.body;
+
+  const newStudent = {
+    id: getAllStudents().length + 1,
+    nom,
+    age
+  };
+
+  addStudent(newStudent);
+
+  res.status(201).json({
+    status: "OK",
+    data: newStudent
+  });
+};
+
 module.exports = {
   getStudents,
-  getStudent
+  getStudent,
+  createStudent
 };

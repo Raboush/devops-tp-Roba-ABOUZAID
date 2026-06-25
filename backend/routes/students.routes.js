@@ -3,11 +3,15 @@ const router = express.Router();
 
 const {
   getStudents,
-  getStudent
+  getStudent,
+  createStudent
 } = require("../controllers/students.controller");
 
 // GET /students
 router.get("/", getStudents);
+
+// POST /students
+router.post("/", createStudent);
 
 // GET /students/:id
 router.get("/:id", getStudent);

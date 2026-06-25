@@ -2,6 +2,7 @@ const express = require("express"); //  Importa Express
 const studentRoutes = require("./backend/routes/students.routes");
 
 const app = express(); //  Crea la aplicación
+app.use(express.json());
 
 const PORT = process.env.PORT || 3000; // Puerto por defecto
 
