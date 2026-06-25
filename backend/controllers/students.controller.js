@@ -1,7 +1,11 @@
+const { getAllStudents } = require("../models/student.model");
+
 const getStudents = (req, res) => {
+  const students = getAllStudents();
+
   res.json({
-    message: "Liste des étudiants",
-    status: "OK"
+    status: "OK",
+    data: students
   });
 };
 
