@@ -15,6 +15,11 @@ const getAllStudents = () => {
   return students;
 };
 
+const getStudentById = (id) => {
+  return students.find(student => student.id === Number(id));
+};
+
 module.exports = {
-  getAllStudents
+  getAllStudents,
+  getStudentById
 };
