@@ -141,3 +141,10 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# DevOps
+*.key
+vendor/
+.idea/
+.DS_Store
+.vscode/
