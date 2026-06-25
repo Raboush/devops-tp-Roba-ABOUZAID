@@ -1,4 +1,5 @@
 const express = require("express"); //  Importa Express
+const studentRoutes = require("./backend/routes/students.routes");
 
 const app = express(); //  Crea la aplicación
 
@@ -10,6 +11,8 @@ app.get("/", (req, res) => { //  Ruta GET /
     status: "OK"
   });
 });
+
+app.use("/students", studentRoutes);
 
 app.listen(PORT, () => { //  Arranca el servidor
   console.log(`Server running on port ${PORT}`);
