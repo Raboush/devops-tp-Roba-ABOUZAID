@@ -3,7 +3,7 @@ const {
   getStudentById,
   addStudent,
   updateStudent,
-  deleteStudent
+  deleteStudent,
 } = require("../models/student.model");
 
 const getStudents = (req, res) => {
@@ -11,7 +11,7 @@ const getStudents = (req, res) => {
 
   res.json({
     status: "OK",
-    data: students
+    data: students,
   });
 };
 
@@ -21,13 +21,13 @@ const getStudent = (req, res) => {
   if (!student) {
     return res.status(404).json({
       status: "ERROR",
-      message: "Student not found"
+      message: "Student not found",
     });
   }
 
   res.json({
     status: "OK",
-    data: student
+    data: student,
   });
 };
 
@@ -37,14 +37,14 @@ const createStudent = (req, res) => {
   const newStudent = {
     id: getAllStudents().length + 1,
     nom,
-    age
+    age,
   };
 
   addStudent(newStudent);
 
   res.status(201).json({
     status: "OK",
-    data: newStudent
+    data: newStudent,
   });
 };
 
@@ -54,13 +54,13 @@ const editStudent = (req, res) => {
   if (!updatedStudent) {
     return res.status(404).json({
       status: "ERROR",
-      message: "Student not found"
+      message: "Student not found",
     });
   }
 
   res.json({
     status: "OK",
-    data: updatedStudent
+    data: updatedStudent,
   });
 };
 
@@ -70,13 +70,13 @@ const removeStudent = (req, res) => {
   if (!deletedStudent) {
     return res.status(404).json({
       status: "ERROR",
-      message: "Student not found"
+      message: "Student not found",
     });
   }
 
   res.json({
     status: "OK",
-    data: deletedStudent
+    data: deletedStudent,
   });
 };
 
@@ -85,5 +85,5 @@ module.exports = {
   getStudent,
   createStudent,
   editStudent,
-  removeStudent
+  removeStudent,
 };

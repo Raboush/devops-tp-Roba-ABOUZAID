@@ -8,8 +8,8 @@ export default [
     languageOptions: {
       sourceType: "commonjs",
       globals: {
-        ...globals.node
-      }
-    }
-  }
+        ...globals.node,
+      },
+    },
+  },
 ];

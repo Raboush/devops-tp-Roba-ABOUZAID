@@ -2,13 +2,13 @@ const students = [
   {
     id: 1,
     nom: "Alice",
-    age: 20
+    age: 20,
   },
   {
     id: 2,
     nom: "Bob",
-    age: 22
-  }
+    age: 22,
+  },
 ];
 
 const getAllStudents = () => {
@@ -16,16 +16,16 @@ const getAllStudents = () => {
 };
 
 const getStudentById = (id) => {
-  return students.find(student => student.id === Number(id));
+  return students.find((student) => student.id === Number(id));
 };
 
 const addStudent = (student) => {
-    students.push(student);
-    return student;
+  students.push(student);
+  return student;
 };
 
 const updateStudent = (id, updatedData) => {
-  const student = students.find(student => student.id === Number(id));
+  const student = students.find((student) => student.id === Number(id));
 
   if (!student) {
     return null;
@@ -38,7 +38,7 @@ const updateStudent = (id, updatedData) => {
 };
 
 const deleteStudent = (id) => {
-  const index = students.findIndex(student => student.id === Number(id));
+  const index = students.findIndex((student) => student.id === Number(id));
 
   if (index === -1) {
     return null;
@@ -52,5 +52,5 @@ module.exports = {
   getStudentById,
   addStudent,
   updateStudent,
-  deleteStudent
+  deleteStudent,
 };

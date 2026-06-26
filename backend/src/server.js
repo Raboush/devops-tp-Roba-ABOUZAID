@@ -10,13 +10,13 @@ const PORT = process.env.PORT || 3000;
 app.get("/", (req, res) => {
   res.json({
     message: "API de Gestion des Étudiants",
-    status: "OK"
+    status: "OK",
   });
 });
 
 app.get("/health", (req, res) => {
   res.json({
-    status: "UP"
+    status: "UP",
   });
 });
 

@@ -10,7 +10,9 @@
     "start": "node backend/src/server.js",
     "dev": "node backend/src/server.js",
     "lint": "eslint .",
-    "test": "echo \"No tests yet\""
+    "format": "prettier --write .",
+    "test": "echo \"No tests yet\"",
+    "test:coverage": "echo \"No coverage yet\""
   },
   "keywords": [],
   "author": "",
@@ -19,6 +21,8 @@
     "express": "^5.2.1"
   },
   "devDependencies": {
-    "eslint": "^9.30.1"
+    "eslint": "^9.30.1",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.8.4"
   }
 }

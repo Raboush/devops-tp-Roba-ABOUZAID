@@ -6,7 +6,7 @@ const {
   getStudent,
   createStudent,
   editStudent,
-  removeStudent
+  removeStudent,
 } = require("../controllers/students.controller");
 
 // GET /students
