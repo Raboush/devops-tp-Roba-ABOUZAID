@@ -1,13 +1,16 @@
 {
   "name": "devops-tp-roba-abouzaid",
   "version": "1.0.0",
-  "description": "API REST simple permettant de gérer des étudiants. Ce projet est réalisé dans le cadre du module DevOps afin de mettre en pratique les bonnes pratiques de développement, de gestion de code, de tests, d'intégration continue et de conteneurisation.\r API REST permettant de gérer les informations des étudiants d'un établissement scolaire.",
-  "main": "app.js",
+  "description": "API REST simple permettant de gérer des étudiants. Ce projet est réalisé dans le cadre du TP DevOps.",
+  "main": "index.js",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node backend/src/server.js",
+    "dev": "node backend/src/server.js",
+    "lint": "eslint .",
+    "test": "echo \"No tests yet\""
   },
   "keywords": [],
   "author": "",
@@ -16,9 +19,6 @@
     "express": "^5.2.1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.4",
-    "eslint": "^9.39.4",
-    "eslint-plugin-react": "^7.37.5",
-    "globals": "^17.7.0"
+    "eslint": "^9.30.1"
   }
 }
