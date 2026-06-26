@@ -1,58 +1,56 @@
-# Sécurité DevOps
+# Sécurité
 
 ## Risques DevOps
 
-### R1 — Exposition du fichier .env
+### R1 — Exposition des variables d'environnement
 
-* **Probabilité :** Moyenne
-* **Impact :** Critique
-* **Action :**
-
-  * Ne jamais versionner le fichier `.env`.
-  * Utiliser uniquement `.env.example`.
-  * Ajouter les secrets dans GitHub Secrets.
-
----
-
-### R2 — Dépendances vulnérables
-
-* **Probabilité :** Moyenne
-* **Impact :** Élevé
-* **Action :**
-
-  * Activer Dependabot.
-  * Mettre régulièrement à jour les dépendances npm.
+- **Probabilité :** Moyenne
+- **Impact :** Critique
+- **Action :**
+  - Ne jamais versionner le fichier `.env`
+  - Utiliser `.env.example`
+  - Stocker les secrets dans GitHub Secrets
 
 ---
 
-### R3 — Échec de la pipeline CI
+### R2 — Vulnérabilités des dépendances
 
-* **Probabilité :** Moyenne
-* **Impact :** Moyen
-* **Action :**
-
-  * Exécuter automatiquement les étapes de lint et de test avant chaque fusion.
-  * Corriger immédiatement les erreurs détectées.
-
----
-
-### R4 — Perte des données PostgreSQL
-
-* **Probabilité :** Faible
-* **Impact :** Élevé
-* **Action :**
-
-  * Utiliser un volume Docker nommé.
-  * Prévoir des sauvegardes régulières de la base de données.
+- **Probabilité :** Moyenne
+- **Impact :** Élevé
+- **Action :**
+  - Activer Dependabot
+  - Mettre régulièrement les dépendances à jour
+  - Vérifier les alertes de sécurité
 
 ---
 
-### R5 — Image Docker obsolète
+### R3 — Pipeline CI en échec
 
-* **Probabilité :** Faible
-* **Impact :** Moyen
-* **Action :**
+- **Probabilité :** Faible
+- **Impact :** Élevé
+- **Action :**
+  - Exécuter automatiquement ESLint
+  - Lancer les tests Jest
+  - Corriger les erreurs avant le merge
 
-  * Reconstruire régulièrement l'image Docker.
-  * Utiliser une image officielle Node.js récente.
-  * Vérifier les mises à jour de sécurité.
+---
+
+### R4 — Conteneur Docker mal configuré
+
+- **Probabilité :** Faible
+- **Impact :** Moyen
+- **Action :**
+  - Utiliser une image officielle Node.js
+  - Vérifier le Dockerfile
+  - Tester le build avant le déploiement
+
+---
+
+### R5 — Perte des données PostgreSQL
+
+- **Probabilité :** Faible
+- **Impact :** Critique
+- **Action :**
+  - Utiliser un volume Docker
+  - Sauvegarder régulièrement la base de données
+  - Vérifier le fonctionnement du volume persistant
