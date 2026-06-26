@@ -60,16 +60,30 @@ npm install
 
 # Lancer le projet
 
-En local :
+
+## Lancer le projet
+
+### Prérequis
+
+* Docker Desktop
+* Git
+* Node.js 22 (optionnel pour le développement local)
+
+### Installation
 
 ```bash
-npm start
+git clone https://github.com/Raboush/devops-tp-Roba-ABOUZAID.git
+cd devops-tp-Roba-ABOUZAID
+cp .env.example .env
+docker compose up
 ```
 
-Le serveur démarre sur :
+L'API sera accessible sur :
 
 ```
 http://localhost:3000
+```
+
 ```
 
 ---
