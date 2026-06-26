@@ -6,15 +6,14 @@
   "directories": {
     "doc": "docs"
   },
-"scripts": {
-  "start": "node backend/src/server.js",
-  "dev": "node backend/src/server.js",
-  "lint": "eslint .",
-  "format": "prettier --write .",
-  "test": "jest",
-  "test:coverage": "jest --coverage"
-},
-
+  "scripts": {
+    "start": "node backend/src/server.js",
+    "dev": "node backend/src/server.js",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "test": "jest",
+    "test:coverage": "jest --coverage"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -24,6 +23,7 @@
   "devDependencies": {
     "eslint": "^9.30.1",
     "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.7.0",
     "jest": "^30.4.2",
     "prettier": "^3.8.4"
   }
