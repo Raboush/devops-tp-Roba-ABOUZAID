@@ -1,163 +1,191 @@
 # Stratégie DevOps
 
-# 1. Architecture technique cible
+## 1. Architecture technique cible
 
-Le projet est une API REST développée avec Node.js et Express. L'application est conteneurisée avec Docker et peut être exécutée avec Docker Compose. Une base de données PostgreSQL est prévue pour stocker les informations des étudiants.
+Le projet est une API REST développée avec Node.js et Express.js.
+L'application est conteneurisée avec Docker et utilise PostgreSQL comme base de données.
 
----
-
-# 2. Structure du repository
-
-Le dépôt est organisé de la manière suivante :
-
-* `backend/` : code source de l'API
-* `docs/` : documentation technique
-* `tests/` : tests unitaires
-* `.github/workflows/` : pipelines GitHub Actions
-* `Dockerfile` : image Docker du backend
-* `docker-compose.yml` : orchestration des services
+```
+Client
+   │
+   ▼
+Backend (Node.js / Express)
+   │
+   ▼
+PostgreSQL
+```
 
 ---
 
-# 3. Workflow Git
+## 2. Structure du repository
+
+```
+.
+├── backend/
+├── docs/
+├── frontend/
+├── tests/
+├── .github/
+├── docker-compose.yml
+├── package.json
+└── README.md
+```
+
+Le dossier **backend/** contient le code source de l'API.
+Le dossier **docs/** contient toute la documentation technique.
+Le dossier **tests/** contient les tests unitaires.
+
+---
+
+## 3. Workflow Git
+
+Le projet utilise Git et GitHub.
 
 Le développement est réalisé sur des branches de fonctionnalités.
 
-Processus :
+Workflow :
 
-* création d'une branche
-* développement
-* commit
-* push
-* vérification automatique via GitHub Actions
-* fusion dans la branche principale
+- feature/*
+- develop
+- main
 
----
-
-# 4. Services Docker prévus
-
-Deux services principaux sont utilisés :
-
-* Backend Node.js
-* Base de données PostgreSQL
-
-Docker Compose permet de lancer tous les services avec une seule commande.
+Chaque modification est validée par un commit puis envoyée sur GitHub.
 
 ---
 
-# 5. Variables d'environnement
+## 4. Services Docker prévus
 
-Les variables sensibles sont stockées dans un fichier `.env`.
+Deux services sont prévus :
+
+- Backend Node.js
+- Base de données PostgreSQL
+
+Docker Compose permet de lancer les deux services ensemble.
+
+---
+
+## 5. Variables d'environnement
+
+Les variables sont stockées dans un fichier `.env`.
+
+Exemples :
+
+- DB_HOST
+- DB_PORT
+- DB_USER
+- DB_PASSWORD
+- DB_NAME
 
 Le fichier `.env` n'est jamais versionné.
 
-Un fichier `.env.example` est fourni comme modèle.
+---
+
+## 6. Stratégie de tests
+
+Les tests utilisent Jest.
+
+Ils couvrent :
+
+- tests unitaires
+- validation des données
+- transformation des données
+- simulation de réponses IA (mock)
+
+Les tests sont exécutés automatiquement dans GitHub Actions.
 
 ---
 
-# 6. Stratégie de tests
+## 7. Pipeline CI
 
-Les tests sont réalisés avec Jest.
+La pipeline GitHub Actions réalise automatiquement :
 
-Les tests couvrent :
+1. Installation des dépendances
+2. Vérification ESLint
+3. Exécution des tests Jest
 
-* validation des données
-* normalisation des scores
-* transformation des réponses IA
-
-Les tests sont exécutés automatiquement dans la pipeline CI.
+La pipeline est déclenchée sur chaque Push et Pull Request.
 
 ---
 
-# 7. Pipeline CI
-
-La pipeline GitHub Actions exécute automatiquement :
-
-* installation des dépendances
-* analyse ESLint
-* tests Jest
-
-Chaque push déclenche une vérification automatique.
-
----
-
-# 8. Sécurité et secrets
+## 8. Sécurité et secrets
 
 Les secrets ne sont jamais stockés dans Git.
 
+Les informations sensibles sont placées :
+
+- dans `.env`
+- dans GitHub Secrets
+
 Dependabot est activé pour surveiller les dépendances.
 
-Les fichiers `.env` sont exclus du dépôt grâce au `.gitignore`.
+---
+
+## 9. Logs prévus
+
+Les logs permettent de suivre :
+
+- le démarrage du serveur
+- les erreurs Express
+- les erreurs de connexion à PostgreSQL
+
+Ces informations facilitent le débogage.
 
 ---
 
-# 9. Logs prévus
+## 10. Risques DevOps
 
-Les logs permettront de suivre :
+Principaux risques :
 
-* le démarrage de l'application
-* les erreurs serveur
-* les appels API
-* les erreurs de la base de données
+- fuite de secrets
+- dépendances vulnérables
+- échec de la CI
+- erreur de configuration Docker
+- perte des données PostgreSQL
 
----
-
-# 10. Risques DevOps
-
-Les principaux risques sont :
-
-* exposition des secrets
-* dépendances vulnérables
-* échec de la CI
-* perte des données
-* image Docker obsolète
-
-Ces risques sont documentés dans `docs/security.md`.
+Ces risques sont détaillés dans `docs/security.md`.
 
 ---
 
-# 11. Commandes de lancement
+## 11. Commandes de lancement
+
+Installation :
 
 ```bash
-git clone https://github.com/Raboush/devops-tp-Roba-ABOUZAID.git
-cd devops-tp-Roba-ABOUZAID
-cp .env.example .env
+npm install
+```
+
+Développement :
+
+```bash
+npm start
+```
+
+Tests :
+
+```bash
+npm test
+```
+
+Lint :
+
+```bash
+npm run lint
+```
+
+Docker :
+
+```bash
 docker compose up
 ```
 
-L'application est disponible sur :
-
-http://localhost:3000
-
 ---
 
-# 12. Prochaines actions
+## 12. Prochaines actions
 
 Les prochaines améliorations prévues sont :
 
-* connecter PostgreSQL au backend
-* augmenter la couverture des tests
-* améliorer la documentation
-* renforcer la sécurité
-* déployer l'application sur un serveur cloud
-
----
-
-# Schéma de l'architecture
-
-```text
-Utilisateur
-      │
-      ▼
-GitHub Repository
-      │
-      ▼
-GitHub Actions
-      │
-      ▼
-Docker
-      │
-      ├────────► Backend (Node.js)
-      │
-      └────────► PostgreSQL
-```
+- compléter les tests d'intégration
+- améliorer la couverture des tests
+- ajouter davantage d'endpoints REST
+- optimiser la configuration Docker
+- déployer automatiquement l'application
