@@ -1,6 +1,8 @@
 # API de Gestion des Étudiants
 
 ![CI](https://github.com/Raboush/devops-tp-Roba-ABOUZAID/actions/workflows/ci.yml/badge.svg)
+
+![CI](https://github.com/Raboush/devops-tp-Roba-ABOUZAID/actions/workflows/ci.yml/badge.svg)
 ![Lint](https://github.com/Raboush/devops-tp-Roba-ABOUZAID/actions/workflows/lint.yml/badge.svg)
 ![Tests](https://github.com/Raboush/devops-tp-Roba-ABOUZAID/actions/workflows/test.yml/badge.svg)
 
